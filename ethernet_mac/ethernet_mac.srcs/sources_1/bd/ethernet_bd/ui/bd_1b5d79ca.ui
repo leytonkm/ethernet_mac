@@ -1,0 +1,31 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.960754",
+   "Default View_TopLeft":"-408,-388",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port port-id_reset_rtl_0 -pg 1 -lvl 0 -x -280 -y -220 -defaultsOSRD
+preplace port port-id_clk_100MHz -pg 1 -lvl 0 -x -280 -y -200 -defaultsOSRD
+preplace port port-id_eth_rstn_0 -pg 1 -lvl 4 -x 740 -y -260 -defaultsOSRD
+preplace port port-id_eth_mdc_0 -pg 1 -lvl 4 -x 740 -y -240 -defaultsOSRD
+preplace port port-id_eth_mdio_0 -pg 1 -lvl 4 -x 740 -y -220 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 100 -y -210 -defaultsOSRD
+preplace inst util_vector_logic_0 -pg 1 -lvl 1 -x 100 -y -80 -defaultsOSRD
+preplace inst eth_phy_bringup_top_0 -pg 1 -lvl 2 -x 380 -y -210 -defaultsOSRD
+preplace inst ila_0 -pg 1 -lvl 3 -x 630 -y -20 -defaultsOSRD
+preplace netloc clk_wiz_0_clk_out1 1 1 2 250 -320 540
+preplace netloc reset_0_1 1 0 1 -260 -220n
+preplace netloc clk_in1_0_1 1 0 1 N -200
+preplace netloc util_vector_logic_0_Res 1 1 1 250 -200n
+preplace netloc eth_phy_bringup_top_0_eth_rstn 1 2 2 N -260 N
+preplace netloc eth_phy_bringup_top_0_eth_mdc 1 2 2 N -240 N
+preplace netloc Net 1 2 2 N -220 N
+preplace netloc eth_phy_bringup_top_0_bringup_rdata 1 2 1 520 -180n
+preplace netloc eth_phy_bringup_top_0_bringup_done 1 2 1 530 -200n
+preplace netloc eth_phy_bringup_top_0_link_up 1 2 1 510 -160n
+levelinfo -pg 1 -280 100 380 630 740
+pagesize -pg 1 -db -bbox -sgen -410 -500 870 140
+"
+}
+
