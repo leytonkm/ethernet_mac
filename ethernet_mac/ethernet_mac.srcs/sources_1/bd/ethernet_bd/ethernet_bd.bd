@@ -1,20 +1,20 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xBBFD3D51C2A58929",
+      "boundary_crc": "0x79F481FC58C62542",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../ethernet_mac.gen/sources_1/bd/ethernet_bd",
       "name": "ethernet_bd",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2022.2",
+      "tool_version": "2025.2",
       "validated": "true"
     },
     "design_tree": {
       "clk_wiz_0": "",
       "util_vector_logic_0": "",
-      "eth_phy_bringup_top_0": "",
-      "ila_0": ""
+      "ila_0": "",
+      "eth_phy_bringup_top_0": ""
     },
     "ports": {
       "reset_rtl_0": {
@@ -75,40 +75,70 @@
       },
       "eth_mdio_0": {
         "direction": "IO"
+      },
+      "eth_ref_clk": {
+        "type": "clk",
+        "direction": "O",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "/clk_wiz_0_clk_out1",
+            "value_src": "ip_prop"
+          },
+          "FREQ_HZ": {
+            "value": "25000000",
+            "value_src": "ip_prop"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "ip_prop"
+          }
+        }
       }
     },
     "components": {
       "clk_wiz_0": {
         "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "ip_revision": "17",
         "xci_name": "ethernet_bd_clk_wiz_0_0",
         "xci_path": "ip\\ethernet_bd_clk_wiz_0_0\\ethernet_bd_clk_wiz_0_0.xci",
         "inst_hier_path": "clk_wiz_0",
+        "has_run_ip_tcl": "true",
         "parameters": {
           "CLKOUT1_JITTER": {
-            "value": "631.442"
+            "value": "181.828"
           },
           "CLKOUT1_PHASE_ERROR": {
-            "value": "346.848"
+            "value": "104.359"
           },
           "CLKOUT1_REQUESTED_OUT_FREQ": {
-            "value": "5"
+            "value": "25"
           },
           "MMCM_CLKFBOUT_MULT_F": {
-            "value": "32.000"
+            "value": "9.125"
           },
           "MMCM_CLKOUT0_DIVIDE_F": {
-            "value": "128.000"
+            "value": "36.500"
           },
           "MMCM_DIVCLK_DIVIDE": {
-            "value": "5"
+            "value": "1"
           }
         }
       },
       "util_vector_logic_0": {
         "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "ip_revision": "5",
         "xci_name": "ethernet_bd_util_vector_logic_0_0",
         "xci_path": "ip\\ethernet_bd_util_vector_logic_0_0\\ethernet_bd_util_vector_logic_0_0.xci",
         "inst_hier_path": "util_vector_logic_0",
+        "has_run_ip_tcl": "true",
         "parameters": {
           "C_OPERATION": {
             "value": "not"
@@ -118,31 +148,38 @@
           }
         }
       },
-      "eth_phy_bringup_top_0": {
-        "vlnv": "xilinx.com:user:eth_phy_bringup_top:1.0",
-        "xci_name": "ethernet_bd_eth_phy_bringup_top_0_0",
-        "xci_path": "ip\\ethernet_bd_eth_phy_bringup_top_0_0\\ethernet_bd_eth_phy_bringup_top_0_0.xci",
-        "inst_hier_path": "eth_phy_bringup_top_0"
-      },
       "ila_0": {
         "vlnv": "xilinx.com:ip:ila:6.2",
-        "xci_name": "ethernet_bd_ila_0_0",
-        "xci_path": "ip\\ethernet_bd_ila_0_0\\ethernet_bd_ila_0_0.xci",
+        "ip_revision": "19",
+        "xci_name": "ethernet_bd_ila_0_1",
+        "xci_path": "ip\\ethernet_bd_ila_0_1\\ethernet_bd_ila_0_1.xci",
         "inst_hier_path": "ila_0",
+        "has_run_ip_tcl": "true",
         "parameters": {
           "C_DATA_DEPTH": {
-            "value": "4096"
+            "value": "16384"
           },
           "C_MONITOR_TYPE": {
             "value": "Native"
           },
           "C_NUM_OF_PROBES": {
-            "value": "3"
+            "value": "4"
           },
           "C_PROBE1_WIDTH": {
             "value": "16"
+          },
+          "C_PROBE3_WIDTH": {
+            "value": "16"
           }
         }
+      },
+      "eth_phy_bringup_top_0": {
+        "vlnv": "xilinx.com:user:eth_phy_bringup_top:1.0",
+        "ip_revision": "6",
+        "xci_name": "ethernet_bd_eth_phy_bringup_top_0_1",
+        "xci_path": "ip\\ethernet_bd_eth_phy_bringup_top_0_1\\ethernet_bd_eth_phy_bringup_top_0_1.xci",
+        "inst_hier_path": "eth_phy_bringup_top_0",
+        "has_run_ip_tcl": "true"
       }
     },
     "nets": {
@@ -161,8 +198,9 @@
       "clk_wiz_0_clk_out1": {
         "ports": [
           "clk_wiz_0/clk_out1",
-          "eth_phy_bringup_top_0/clk_5mhz",
-          "ila_0/clk"
+          "eth_ref_clk",
+          "ila_0/clk",
+          "eth_phy_bringup_top_0/clk"
         ]
       },
       "eth_phy_bringup_top_0_bringup_done": {
@@ -175,6 +213,12 @@
         "ports": [
           "eth_phy_bringup_top_0/bringup_rdata",
           "ila_0/probe1"
+        ]
+      },
+      "eth_phy_bringup_top_0_dbg": {
+        "ports": [
+          "eth_phy_bringup_top_0/dbg",
+          "ila_0/probe3"
         ]
       },
       "eth_phy_bringup_top_0_eth_mdc": {

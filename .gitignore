@@ -11,3 +11,7 @@
 *.bit
 *.wdb
 *.jrn
+*.tmp/
+
+*.md
+!README.md
